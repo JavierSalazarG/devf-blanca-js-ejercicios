@@ -25,7 +25,20 @@
            */
 
           for (var i = 0; i <= max; i++) {
-            print(i, true);
+            var resultado = "";
+            if (!(i % 3)) {
+              resultado += "Fizz"
+            }
+            if (!(i % 5)) {
+              resultado += "Buzz"
+            }
+
+            if (resultado) {
+              print(resultado, true);
+            } else {
+              print(i, true);
+            }
+
           }
         }
         // ******************************************
