@@ -43,8 +43,7 @@
     function definir_ganador(s_jugador, s_maquina, reglas){
         if(s_maquina == s_jugador){
           return "Empatas -.-";
-        }
-        var regla = reglas[s_jugador];
+        } var regla = reglas[s_jugador];
         return regla[s_maquina];
     }
 
@@ -57,11 +56,6 @@
     function dibujar(valor){
       document.querySelector("#resultado").innerHTML = valor;
     }
-
-    // function agregar_a_reusltado(valor){
-    //   // append
-    // }
-
   </script>
 </body>
 </html>

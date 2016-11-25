@@ -15,16 +15,30 @@
       <div id="resultado"></div>
     </div>
     <script>
-
+        // max_de_n([5, 6, 9, 10, 0, 1])
         function max_de_n(numeros) {
-          console.log(numeros); // Puedes ver en la consola que este es un
+          console.log(numeros); // Puedes ver en la consola que éste es un
                                 // array de números.
-          var maximo;
+          var maximo = 0;
 
           /*
             Ejercicio: `numeros` es un array de números. Usa un
             bucle `for` para encontrar el máximo.
            */
+          for(i in numeros){ // iteración de colecciones
+            var n_actual = parseInt(numeros[i]);
+            if(n_actual > maximo){
+              maximo = n_actual;
+            }
+          }
+
+
+          for(var i=0; i <= numeros.length; i++){
+            var n_actual = parseInt(numeros[i]);
+            if(n_actual > maximo){
+              maximo = n_actual;
+            }
+          }
 
           return maximo;
         }
