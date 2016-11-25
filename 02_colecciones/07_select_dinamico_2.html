@@ -46,6 +46,12 @@
             Ejercicio 1: Cuando carga la página, llena el select de países
             con la lista de países.
          */
+        var pais_select = document.querySelector("#pais");
+        for (var pais in estados) {
+          pais_select.innerHTML += "<option>" + pais + "</option>";
+        }
+        // Llama una vez a la función para cargar estados inciales.
+        actualizar_estados();
 
         function actualizar_estados() {
           /*
@@ -53,6 +59,21 @@
             seleccionada en el select de países. Leyendo el valor actual
             de pais, llena el select de estados con la lista que corresponde.
            */
+          var estado_select = document.querySelector("#estado");
+
+
+          // Borrar opciones actuales
+          var length = estado_select.options.length;
+          estado_select.innerHTML = "";
+
+          // Llenar opciones nuevas
+          var pais_select = document.querySelector("#pais");
+          var pais = pais_select.value;
+          var estados_actuales = estados[pais];
+          console.log(pais);
+          for (i in estados_actuales) {
+            estado_select.innerHTML += "<option>" + estados_actuales[i] + "</option>";
+          }
         }
 
     </script>
