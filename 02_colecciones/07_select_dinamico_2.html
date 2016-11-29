@@ -16,11 +16,17 @@
 
         function validar_codigo_postal() {
           // Llamar a la versión correcta por país
+          var pais = document.querySelector("#pais").value;
+          var codigo_postal = document.querySelector("#codigo_postal").value;
+          if (pais == "México") {
+            validar_codigo_postal_5numeros(codigo_postal);
+          } else if (pais == "Alemania") {
+            validar_codigo_postal_5letras(codigo_postal);
+          }
         }
 
-        function validar_codigo_postal_5numeros() {
+        function validar_codigo_postal_5numeros(codigo_postal) {
           console.log("Validando Codigo postal");
-          var codigo_postal = document.querySelector("#codigo_postal").value;
 
           var mensaje = "";
           if (isNaN(codigo_postal)) {
@@ -31,6 +37,17 @@
 
           document.querySelector("#cp_error").innerHTML = mensaje;
 
+        }
+
+        function validar_codigo_postal_5letras(codigo_postal) {
+          var mensaje = "";
+          if (!/^[a-zA-Z]+$/.test(codigo_postal)) {
+            mensaje += "Código postal tiene que ser letras";
+          } else if (codigo_postal.length != 5) {
+            mensaje += "Código postal tiene que ser 5 dígitos";
+          }
+
+          document.querySelector("#cp_error").innerHTML = mensaje;
         }
 
 
