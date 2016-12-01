@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>jQuery introducción</title>
+    <link rel="stylesheet" href="css/master.css">
+  </head>
+  <body>
+    <h1>jQuery introducción</h1>
+    <a href="http://jquery.com/">jQuery</a>
+    <button id="get_clima">GET clima!</button>
+    <div id="clima"></div>
+    <br><br>
+    <button id="get_meme">GET gif!</button>
+    <div id="meme"></div>
+
+    <!-- Este snippet de http://code.jquery.com -->
+    <script src="../_recursos/jquery.js"></script>
+    <script>
+
+
+
+        $("#get_clima").click(function(event) {
+          var lat = 19.442761;
+          var long = -99.214937;
+          var clave = "167d73a7da1252437ee76e443ce57848";
+          var url = "https://api.darksky.net/forecast/" + clave + "/" + lat + "," + long + "?lang=es&units=si";
+          function exito(r) {
+            console.log(r);
+            $("#clima").html(r.currently.temperature + "<br>" + r.daily.summary);
+          }
+          $.get(url, exito);
+        });
+
+        $("#get_meme").click(function() {
+          var meme_busqueda = "ibm";
+          $.getJSON(
+            "http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=" + meme_busqueda,
+            function (json) {
+              console.log(json);
+              $("#meme").html("<img src='" + json.data.fixed_width_downsampled_url + "'>");
+            });
+        });
+    </script>
+  </body>
+</html>
