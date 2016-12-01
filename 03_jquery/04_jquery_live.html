@@ -17,11 +17,6 @@
         console.log("Clima click!");
         var url = "https://api.darksky.net/forecast/167d73a7da1252437ee76e443ce57848/19.442822,-99.214821?lang=es&units=si";
 
-        var objeto = {
-          nombre: "valor",
-          nombre2: 1231
-        }
-
         $.getJSON(url, function (resultado) {
           console.log(resultado);
           $("#clima_div").html(
